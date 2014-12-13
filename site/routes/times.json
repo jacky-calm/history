@@ -1,6 +1,32 @@
 [
-	{
-		"period" : [-1700000, -4000],  
-		"dynasty": "原始社会"
-	}
+	{ "dynasty": "原始社会", "period": [-1700000, -4000] },
+	{ "dynasty": "夏朝",    "period": [-2100, 1600]		}, 
+	{ "dynasty": "商朝",    "period": [-1600, 1100]		}, 
+	{ "dynasty": "西周",    "period": [-1100, 771]}, 
+	{ "dynasty": "东周",    "period": [-770, 256]},
+	{ "dynasty": "春秋",    "period": [-770, 476]}, 
+	{ "dynasty": "战国",    "period": [-475, 221]}, 
+	{ "dynasty": "秦朝",    "period": [-221, 206]}, 
+	{ "dynasty": "大楚",    "period": [-207, 202]},
+	{ "dynasty": "西汉",    "period": [-202, 8]},
+	{ "dynasty": "新朝",    "period": [8, 23]},
+	{ "dynasty": "东汉",    "period": [25, 220]}, 
+	{ "dynasty": "魏",     "period": [220, 265]},
+	{ "dynasty": "蜀",     "period": [221, 263]},
+	{ "dynasty": "吴",     "period": [229, 280]}, 
+	{ "dynasty": "西晋",     "period": [265, 316]},
+	{ "dynasty": "东晋",     "period": [317, 420]},
+	{ "dynasty": "十六",     "period": [304, 439]},
+	{ "dynasty": "南北",     "period": [420, 581]}, 
+	{ "dynasty": "隋朝",     "period": [581, 618]},
+	{ "dynasty": "唐朝",     "period": [618, 907]},
+	{ "dynasty": "北宋",     "period": [960, 1127]},
+	{ "dynasty": "南宋",     "period": [1127, 1279]},
+	{ "dynasty": "辽朝",     "period": [916, 1125]},
+	{ "dynasty": "西夏",     "period": [1038, 1227]},
+	{ "dynasty": "金朝",     "period": [1115, 1234]}, 
+	{ "dynasty": "元朝",     "period": [1271, 1368]},
+	{ "dynasty": "明朝",     "period": [1368, 1644]},
+	{ "dynasty": "清朝",     "period": [1644, 1911]}
+
 ]

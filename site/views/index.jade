@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+    each d in dynasties
+      li=d['period'][0] + " - " + d['period'][1] + ": " + d['dynasty']
