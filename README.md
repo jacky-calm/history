@@ -24,7 +24,9 @@ install dependencies:
      $ DEBUG=site ./bin/www
 
 
-========
+======== useful lib 
+http://almende.github.io/chap-links-library/timeline.html
+
 
 
 

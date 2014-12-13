@@ -6,3 +6,14 @@ block content
   ul
     each d in dynasties
       li=d['period'][0] + " - " + d['period'][1] + ": " + d['dynasty']
+
+  canvas#myChart(width="400" height="400")
+
+
+  var data = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [ ]
+  };
+  var ctx = document.getElementById("myChart").getContext("2d");
+  var myLineChart = new Chart(ctx).Line(data);
+  

@@ -1,0 +1,12 @@
+{
+    "folders":
+    [
+        {
+            "path": "site" 
+        } 
+    ],
+    "settings":
+    {
+        "tab_size": 2
+    }
+}
