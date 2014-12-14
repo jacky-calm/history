@@ -5,9 +5,14 @@ $(document).ready(
     	var data = result.filter(function(dynasty) {
     		return dynasty.period[1] > -4000;
     	}).map(function(dynasty) { 
+    		console.log(dynasty);
+    		var start = dynasty.period[0];
+    		if (start>0 && start<100) {
+    			start += 100; //TODO for display tricky, do not know why.
+    		};
     		return {
-    			'start': new Date(dynasty.period[0], 1, 1), 
-    			'content': dynasty.name + "("+ dynasty.period[0]
+    			'start': new Date(start, 1, 1), 
+    			'content': dynasty.name + " ("+ new String(dynasty.period[0]).replace("-", "－")
     				+ ", " + (dynasty.period[1]-dynasty.period[0]) +")"
     		}
     	});
