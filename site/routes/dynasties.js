@@ -4,7 +4,9 @@ var fs = require('fs');
 
 /* GET users listing. */
 router.get('/', function(req, res) {
-   fs.readFile('/Users/chengxiang/github/history/site/routes/dynasties.json', 'utf8', function (err,data) {
+	var country = req.param('country');
+  fs.readFile('/Users/chengxiang/github/history/site/routes/dynasties-'+country+'.json', 
+  	'utf8', function (err,data) {
 	  if (err) {
 	    return console.log(err);
 	  }

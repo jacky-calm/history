@@ -1,21 +1,19 @@
-$(document).ready(
+$(document).ready( 
 	function drawTimeline() {
-    $.getJSON("/dynasties", function(result) {
-    	console.log(result);
-    	var data = result.filter(function(dynasty) {
-    		return dynasty.period[1] > -4000;
-    	}).map(function(dynasty) { 
-    		console.log(dynasty);
-    		var start = dynasty.period[0];
-    		if (start>0 && start<100) {
-    			start += 100; //TODO for display tricky, do not know why.
-    		};
-    		return {
-    			'start': new Date(start, 1, 1), 
-    			'content': dynasty.name + " ("+ new String(dynasty.period[0]).replace("-", "－")
-    				+ ", " + (dynasty.period[1]-dynasty.period[0]) +")"
-    		}
-    	});
+		$( "#cnTimeline" ).click(function() {
+			showTimeline('cn');
+		});
+		$( "#enTimeline" ).click(function() {
+			showTimeline('en');
+		});
+
+		showTimeline('cn');
+	}
+);
+
+function showTimeline(country) {
+	$.getJSON("/dynasties?country="+country, function(dynastiesJson) {
+    	var data = mapData(dynastiesJson, country);
     	// specify options
 	    var options = {
 	        'width':  '100%',
@@ -28,8 +26,7 @@ $(document).ready(
 	    var timeline = new links.Timeline(document.getElementById('dynastyTimeline'), options);
 
 	    function onRangeChanged(properties) {
-	        document.getElementById('info').innerHTML += 'rangechanged ' +
-	                properties.start + ' - ' + properties.end + '<br>';
+	        console.log('rangechanged ' +properties.start + ' - ' + properties.end);
 	    }
 
 	    // attach an event listener using the links events handler
@@ -37,7 +34,31 @@ $(document).ready(
 
 	    // Draw our timeline with the created data and options
 	    timeline.draw(data);
-	    });  
-	} 
-);
+	    });   
+}
+
+function mapData(dynastiesJson, country) {
+	var data = dynastiesJson.filter(function(dynasty) {
+    		return dynasty.period[0] > -3000;
+    	}).map(function(dynasty) { 
+    		var start = dynasty.period[0];
+    		if (start>0 && start<100) {
+    			start += 100; //TODO for display tricky, do not know why.
+    		};
+
+    		var content = dynasty.name;
+    		if (country === 'cn') {
+    			content += " ("+ new String(dynasty.period[0]).replace("-", "－")
+    				+ ", " + (dynasty.period[1]-dynasty.period[0]) +")";
+    		} else if (country === 'en') {
+    			content += " ("+ dynasty.period[0]+")";
+    		};
+
+    		return {
+    			'start': new Date(start, 1, 1), 
+    			'content': content
+    		}
+    	});
+  return data;
+}
 
