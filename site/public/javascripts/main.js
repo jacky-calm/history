@@ -9,6 +9,9 @@ $(document).ready(
 		$( "#usTimeline" ).click(function() {
 			showTimeline('us');
 		});
+		$( "#deTimeline" ).click(function() {
+			showTimeline('de');
+		});
 
 		showTimeline('cn');
 	}
