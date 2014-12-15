@@ -6,6 +6,9 @@ $(document).ready(
 		$( "#enTimeline" ).click(function() {
 			showTimeline('en');
 		});
+		$( "#usTimeline" ).click(function() {
+			showTimeline('us');
+		});
 
 		showTimeline('cn');
 	}
