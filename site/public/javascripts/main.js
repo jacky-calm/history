@@ -6,7 +6,7 @@ $(document).ready(
 		$( "#deTimeline" ).click(function() { showTimeline('de'); });
 		$( "#frTimeline" ).click(function() { showTimeline('fr'); });
 
-		showTimeline('cn');
+		showTimeline('fr');
 	}
 );
 
