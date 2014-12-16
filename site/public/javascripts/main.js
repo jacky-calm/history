@@ -1,17 +1,10 @@
 $(document).ready( 
 	function drawTimeline() {
-		$( "#cnTimeline" ).click(function() {
-			showTimeline('cn');
-		});
-		$( "#enTimeline" ).click(function() {
-			showTimeline('en');
-		});
-		$( "#usTimeline" ).click(function() {
-			showTimeline('us');
-		});
-		$( "#deTimeline" ).click(function() {
-			showTimeline('de');
-		});
+		$( "#cnTimeline" ).click(function() { showTimeline('cn'); });
+		$( "#enTimeline" ).click(function() { showTimeline('en'); });
+		$( "#usTimeline" ).click(function() { showTimeline('us'); });
+		$( "#deTimeline" ).click(function() { showTimeline('de'); });
+		$( "#frTimeline" ).click(function() { showTimeline('fr'); });
 
 		showTimeline('cn');
 	}
