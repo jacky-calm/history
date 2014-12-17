@@ -2,14 +2,16 @@ extends layout
 
 block content
   h2= title
-  a#cnTimeline 中国 
-  a#enTimeline 英国 
-  a#usTimeline 美国 
-  a#deTimeline 德国 
-  a#frTimeline 法国 
+  div#countryLinks
+    a(name="cn") 中国
+    a(name="en") 英国
+    a(name="us") 美国
+    a(name="de") 德国
+    a(name="fr") 法国
   br
   br
-  a#nbTimeline 拿破仑 
+  div#peopleLinks
+    a(name="nb") 拿破仑 
 
   div#dynastyTimeline
 

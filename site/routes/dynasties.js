@@ -4,9 +4,12 @@ var fs = require('fs');
 
 /* GET users listing. */
 router.get('/', function(req, res) {
-	var country = req.param('country');
-  fs.readFile('/Users/chengxiang/github/history/site/routes/data/dynasties-'+country+'.json', 
-  	'utf8', function (err,data) {
+	var catelog = req.param('catelog');
+	var item = req.param('item'); 
+	var base = '/Users/chengxiang/github/history/site/routes/dynasty/';
+	var filePath = base+catelog+'/'+item+'.json';
+	console.log(filePath);
+  fs.readFile(filePath, 'utf8', function (err,data) {
 	  if (err) {
 	    return console.log(err);
 	  }

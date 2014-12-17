@@ -1,18 +1,27 @@
 $(document).ready( 
-	function drawTimeline() {
-		$( "#cnTimeline" ).click(function() { showTimeline('cn'); });
-		$( "#enTimeline" ).click(function() { showTimeline('en'); });
-		$( "#usTimeline" ).click(function() { showTimeline('us'); });
-		$( "#deTimeline" ).click(function() { showTimeline('de'); });
-		$( "#frTimeline" ).click(function() { showTimeline('fr'); });
-
-		showTimeline('fr');
+	function() {
+		bindLinks('country'); 
+		bindLinks('people'); 
+		showDynasties('country', 'fr');
 	}
 );
 
-function showTimeline(country) {
-	$.getJSON("/dynasties?country="+country, function(dynastiesJson) {
-    	var data = mapData(dynastiesJson, country);
+function getUrl(catelog, item) {
+	return "/dynasties?catelog="+catelog+"&item="+item;
+}
+
+function bindLinks(catelog) {
+	var linkPath = "#" + catelog + "Links > a";
+	$(linkPath).each(function(i, countryLink) {
+			$(countryLink).click(function() { 
+				showDynasties(catelog, this.name); 
+			});
+	});
+}
+
+function showDynasties(catelog, item) {
+	$.getJSON(getUrl(catelog, item), function(dynastiesJson) {
+    	var data = mapData(dynastiesJson, item);
     	// specify options
 	    var options = {
 	        'width':  '100%',
@@ -36,7 +45,7 @@ function showTimeline(country) {
 	    });   
 }
 
-function mapData(dynastiesJson, country) {
+function mapData(dynastiesJson, item) {
 	var data = dynastiesJson.filter(function(dynasty) {
     		return dynasty.period[0] > -3000;
     	}).map(function(dynasty) { 
@@ -46,10 +55,10 @@ function mapData(dynastiesJson, country) {
     		};
 
     		var content = dynasty.name;
-    		if (country === 'cn') {
+    		if (item === 'cn') {
     			content += " ("+ new String(dynasty.period[0]).replace("-", "－")
     				+ ", " + (dynasty.period[1]-dynasty.period[0]) +")";
-    		} else if (country === 'en') {
+    		} else if (item === 'en') {
     			content += " ("+ dynasty.period[0]+")";
     		};
 
